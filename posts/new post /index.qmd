@@ -1,7 +1,32 @@
 ---
 title: "Research Journal"
 author: "Shifa Maqsood"
-image: "forget.webp"
 ---
 
-Hi! I am doing good.
+Experiment notes:
+
+-   Scaling is confusing
+
+-   Pictures which depicted nature were less able to be forgotten
+
+-   I found that the more I was trying to forget the pictures, the more they would flash before my eyes
+
+-   It seems unnatural when instructed to forget
+
+-   When I tried to count numbers, it kind of helped to forget, most likely because the pictures did not have any context and such distraction helped me
+
+-   I did not just count numbers, but also visualized them
+
+-   When asked to remember, I did not put any extra effort
+
+-   Interesting note: pictures which had less things in them, like sea or a grey empty hall were harder to forget
+
+-   I would remember the second picture more than first if asked to forget
+
+-   What does replay mean here? Because sometimes if food was shown, i would have the faintest picture
+
+-    Looking elsewhere also helped me forget
+
+-   It is easier to remember the second one in remember condition too
+
+-   
