@@ -4,8 +4,7 @@ author: "Shifa Maqsood"
 image: "images/memory.avif"
 ---
 
-![]()
-\-\--
+![]() \-\--
 
 Experiment notes:
 
