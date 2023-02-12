@@ -1,37 +1,23 @@
 [
   {
-    "objectID": "posts/post-with-code/index.html",
-    "href": "posts/post-with-code/index.html",
-    "title": "Post With Code",
-    "section": "",
-    "text": "This is a post with executable code.\n\n1 + 1\n\n[1] 2"
-  },
-  {
-    "objectID": "posts/welcome/index.html",
-    "href": "posts/welcome/index.html",
-    "title": "Welcome To My Blog",
-    "section": "",
-    "text": "This is the first post in a Quarto blog. Welcome!\n\nSince this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "SM5001",
-    "section": "",
-    "text": "Research Journal\n\n\n\n\n\n\n\n\n\n\n\n\nShifa Maqsood\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "About this blog"
-  },
-  {
     "objectID": "posts/new post /index.html",
     "href": "posts/new post /index.html",
     "title": "Research Journal",
     "section": "",
     "text": "---\nExperiment notes:\n\nScaling is confusing\nPictures which depicted nature were less able to be forgotten\nI found that the more I was trying to forget the pictures, the more they would flash before my eyes\nIt seems unnatural when instructed to forget\nWhen I tried to count numbers, it kind of helped to forget, most likely because the pictures did not have any context and such distraction helped me\nI did not just count numbers, but also visualized them\nWhen asked to remember, I did not put any extra effort\nInteresting note: pictures which had less things in them, like sea or a grey empty hall were harder to forget\nI would remember the second picture more than first if asked to forget\nWhat does replay mean here? Because sometimes if food was shown, i would have the faintest picture\nLooking elsewhere also helped me forget\nIt is easier to remember the second one in remember condition too"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "About",
+    "section": "",
+    "text": "About this blog"
+  },
+  {
+    "objectID": "posts.html",
+    "href": "posts.html",
+    "title": "SM5001",
+    "section": "",
+    "text": "Research Journal\n\n\n\n\n\n\n\n\n\n\n\n\nShifa Maqsood\n\n\n\n\n\n\nNo matching items"
   }
 ]
