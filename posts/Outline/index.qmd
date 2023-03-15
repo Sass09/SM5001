@@ -1,0 +1,27 @@
+---
+title: "Outline"
+author: "Shifa Maqsood"
+
+---
+1. Intro-our self is more or less modeled after our intricately interwoven     instances of our lives in what we call, memory
+  -many decades of research on how memory works has produced many frameworks    explaining many facets of this cognitive process
+  -According to one framework which was proposed as an explanation to the        long held models of LTS and STS, and introduced levels of processing          **explain levels **
+  -Then introduce Rodger's research.
+  -talk about self reference. expand more by citing relevant research
+    -argumentative thesis? this article argues that all previous literature     had had organised stimulus thus it is the organization that produces self     reference task   
+    Thesis statement: This paper aims to replicate the 1977 experiment and it     is expected that self reference will be the most useful encoding task.
+  2. Methods-online, computer, keys 
+  3.Results- prob support?
+  4. Discussion 
+  
+  ----final papers to look at:
+  craik 1972
+  rogers 
+  an online paradigm 
+  critique:Elaboration, organization, and the self-reference effect in memory
+  Why does self-reference promote incidental encoding?
+  Memory for details with self-referencing
+  The self-reference effect in memory: A meta-analysis.
+  Self-memory biases in explicit and incidental encoding of trait adjectives
+
+    

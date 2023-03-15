@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My experiment</title>
+    <script src="jspsych/dist/jspsych.js"></script>
+    <script src="jspsych/dist/plugin-html-keyboard-response.js"></script>
+    <script src= "jspsych/dist/plugin-html-button-response.js"></script>
+    <link href="jspsych/dist/jspsych.css" rel="stylesheet" type="text/css"/>
+  </head>
+  <body></body>
+ 
+  <script>
+  
+var jsPsych = initJsPsych({
+      on_finish: function() {
+        jsPsych.data.displayData();
+      }
+    });
+  
+    
+  
+  var timeline = [];
+  
+  var welcome = {
+  type: jsPsychHtmlKeyboardResponse,
+  stimulus: "Welcome to the experiment. Press key to begin."
+  
+};
+
+  timeline.push(welcome);
+
+    var instructions = {
+      type: jsPsychHtmlKeyboardResponse,
+      choices: "ALL_KEYS",
+      stimulus: `
+        <p>This experiment is about percption of words and reaction time.</p>
+        <p> A question will apppear. Please read the question.<p>
+        <p> Then, a stimulus word will appear. After reading it, record your answer to the             question as <b>yes</b> or <b>no</b> <p>
+        <p>Press any key to begin.</p> `
+     
+    };
+    
+    timeline.push(instructions);
+
+   var cuequesion = {
+        type : jsPsychHtmlKeyboardResponse,
+        choices: "NO_KEYS",
+        stimulus:`<p> Does dominance means the same as assertive?</p>
+     `,
+      
+
+      trial_duration: 3000,
+      post_trial_gap:500,
+      response_ends_trial: false
+      
+   };
+
+ 
+timeline.push(cuequesion);
+
+var task_semantic = {
+  type: jsPsychHtmlButtonResponse,
+  stimulus: `<p style="font-size:90px;"> Dominance </p>
+`,
+  choices: ['Yes', 'No'],
+  prompt: "<p>Press either YES or NO key </p>",
+  post_trial_gap: 2000
+  
+  
+};
+
+
+
+timeline.push(task_semantic);
+  
+  
+  var cuequesion_2 = {
+        type : jsPsychHtmlKeyboardResponse,
+        choices: "NO_KEYS",
+        stimulus:`<p> Does the word, "play" have big letters?</p>
+     `,
+      trial_duration: 3000,
+      post_trial_gap:500,
+      response_ends_trial: false
+      
+      
+   };
+
+ 
+timeline.push(cuequesion_2);
+
+var task_structural = {
+  type: jsPsychHtmlButtonResponse,
+  stimulus: `<p style="font-size:35px;"> play </p>
+`,
+  choices: ['Yes', 'No'],
+  prompt: "<p>Press either YES or NO key </p>"
+  
+  
+  
+};
+
+
+
+timeline.push(task_structural);
+  
+  
+  
+  
+  
+  
+  
+   jsPsych.run(timeline);
+  
+  </script>
+  
+</html>

@@ -1,0 +1,14 @@
+---
+title: "Self reference  review "
+author: "Shifa Maqsood"
+---
+
+#Designing the experiment with jpsych
+
+-   Self reference experiment 1 consisted of 40 adjectives
+
+-   First question then task and then rate yes or no?
+
+-   or present an adjective, then a question?
+
+-   

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> experiment</title>
+    <script src="jspsych/dist/jspsych.js"></script>
+    <script src="jspsych/dist/plugin-html-keyboard-response.js"></script>
+    <link href="jspsych/dist/jspsych.css" rel="stylesheet" type="text/css"/>
+  </head>
+  <body></body>
+  <script>
+ 
+   var jsPsych = initJsPsych();
+  
+    
+var trial = {
+  type: jsPsychHtmlKeyboardResponse,
+  stimulus: '<<<<<',
+  choices: ['f','j'],
+  data: {
+    stimulus_type: 'congruent',
+    target_direction: 'left'
+  },
+  on_start: function(trial){
+    trial.stimulus = '<<><<';
+    trial.data.stimulus_type = 'incongruent';
+    trial.data.target_direction = 'right';
+  }
+}
+
+
+
+jsPsych.run([trial]);
+
+  </script>
+</html>
