@@ -1,0 +1,138 @@
+---
+title             : "The title"
+shorttitle        : "Title"
+
+author: 
+  - name          : "First Author"
+    affiliation   : "1"
+    corresponding : yes    # Define only one corresponding author
+    address       : "Postal address"
+    email         : "my@email.com"
+    role:         # Contributorship roles (e.g., CRediT, https://casrai.org/credit/)
+      - "Conceptualization"
+      - "Writing - Original Draft Preparation"
+      - "Writing - Review & Editing"
+  - name          : "Ernst-August Doelle"
+    affiliation   : "1,2"
+    role:
+      - "Writing - Review & Editing"
+      - "Supervision"
+
+affiliation:
+  - id            : "1"
+    institution   : "Wilhelm-Wundt-University"
+  - id            : "2"
+    institution   : "Konstanz Business School"
+
+authornote: |
+  Add complete departmental affiliations for each author here. Each new line herein must be indented, like this line.
+
+  Enter author note here.
+
+abstract: |
+  One or two sentences providing a **basic introduction** to the field,  comprehensible to a scientist in any discipline.
+  
+  Two to three sentences of **more detailed background**, comprehensible  to scientists in related disciplines.
+  
+  One sentence clearly stating the **general problem** being addressed by  this particular study.
+  
+  One sentence summarizing the main result (with the words "**here we show**" or their equivalent).
+  
+  Two or three sentences explaining what the **main result** reveals in direct comparison to what was thought to be the case previously, or how the  main result adds to previous knowledge.
+  
+  One or two sentences to put the results into a more **general context**.
+  
+  Two or three sentences to provide a **broader perspective**, readily comprehensible to a scientist in any discipline.
+  
+  <!-- https://tinyurl.com/ybremelq -->
+  
+keywords          : "keywords"
+wordcount         : "X"
+
+bibliography      : "r-references.bib"
+
+floatsintext      : no
+linenumbers       : yes
+draft             : no
+mask              : no
+
+figurelist        : no
+tablelist         : no
+footnotelist      : no
+
+classoption       : "man"
+output            : papaja::apa6_pdf
+---
+
+```{r setup, include = FALSE}
+library("papaja")
+r_refs("r-references.bib")
+```
+
+```{r analysis-preferences}
+# Seed for random number generation
+set.seed(42)
+knitr::opts_chunk$set(cache.extra = knitr::rand_seed)
+```
+
+# Introduction
+ A ROAD MAP OF what the paper is going to be about. can include it in pargrpah
+ 
+
+The way we see our world, people and make everyday judgments is consistent with the idea of who we are or what our self is. The concept of self has also been included in studies which involve memory, more specifically, self-reference has been implicated as a a powerful strategy to remember things better. However, let us trace back to a review of memory frameworks which have been refined and expanded onto for the self-reference phenomena to have even been acknowledged. As found in many of our textbooks, memory is divided into long term and short term and sensory stores. However, Craik and Tulving proposed that the multi store model of memory does not have satisfactory explanation to the process of memory and proposed that it is more important to view memory in terms of of levels of processing and the when the stimuli is compatible with the present cognitive concepts in mind, they will be encoded more deeply than the stimuli which is not meaningful as it does not align with any cognitive structure. (Craik and Lockhard,1972). This framework's idea of deeper processing was thus supported by an experiment whose findings confirmed that the semantic tasks yielded far better performance on recall and recognition tests than structural or phonemic tasks, however their empirical findings also presented that the time spent does not mean better retention bur rather the type of task involved in encoding. (Craik & Tulving, 1975). In 1977, Rogers et al. (1977) suggested that self can act as an abstract representation of one's idea of the world which also includes past experiences and can be used to interpret new information, thus self-reference can be an effective device in encoding of stimulus in an experiment in comparison to semantic tasks. Their results found that self-reference task appeared to be the dominant encoding device in comparison to semantic task during incidental recall in the experiment. (Rogers et al., 1977). Furthermore,yes-rated items were recalled more than the words rated as no, and Rogers e al (1977) put forward that this view is aligned with the idea that self is a well organized set of traits arranged in a hierarchy in which the traits which fits the person most and is important to them is at the top. It is also likely for self to play a role in incidental recall in which there were not any explicit cues given to subjects to associate the trait adjective with themselves,(ex. Does this word describe you?") which demonstrates its role in everyday life. (Turk et al., 2008). The involvement of self in our everyday lives was also further supported when participants recalled birthdays which were closer to their own birthdays, whether it involved their friends or strangers' birthdays. (Kesebir& Oishi, 2010).
+
+in first para say we will talk about sre, causes, expplnantions and all
+general hypothesis of paper 
+is SRE. retrieval pratice phenomenon. does task of relating to one's self helps in retrival 
+
+
+However, despite replications of th self-reference emerging as a robust encoding device in incidental recall paradigm, there have not been many conclusive attempts to discover more elaborate reasoning underlying the process of the self-reference effect. Ganellen & Carver (1985) hypothesized several mediators for as to the reasons self-reference promotes incidental encoding; they proposed that affect could facilitate deep encoding of traits which relate positively to the schema of one's self.They also proposed that it could also matter how important the word was to subject and thirdly, the level of how distinctive that word is to the subject could also lead to deeper processing. Their findings did show that in in recall subjects were able to recall words that described than more than the words that had referred to others and higher recall for words judged as affirmative.However, none of the mediators were implicated in the interaction with the self-reference effect. (Ganellen & Carver, 1985). There have been other mediating factors proposed to have been supporting the self-reference effect: elaborative processing and organizational processing. In the process of elaboration, the stimulus word is encoded as a reference to the information already present in subject's memory which makes it easier to recall as multiple retrieval routes are established for recalling it. (Klein & Loftus, 1988). On the other hand, if the subjects are cued to form associations between words and cluster them under categorical labels, they can later use that process of organization in retrieval. ( Tulving & Pearlstone, 1966 as mentioned in Klein & Loftus, 1988). Their experiment results yielded that it is possible that both elaborative and organizational processes were involved in self-reference yet the study was unable to draw a conclusion about which one produced larger recall. It is also possible that most of the research in regard to processes underlying SRE have been inconclusive because some studies also use descriptive tasks (eg Rogers et.al, 1977) while other studies use autobiographical task which allow for retrieval of an autobiographical memory in response to the stimulus word. (Klein & Loftus, 1989) As shown by Klein & Loftus, 1989 their experiment demonstrated that subjects recalled more word when they had to do both, autobiographical and descriptive tasks in contrast to two of the same tasks in a row.(Klein & Loftus, 1989).
+
+This was a singular and prevalent perspective of viewing the phenomenon of self-reference effect which is primarily based upon memory as having deeper levels of processing. (Craik and Lockhard,1972). Operating within this paradigm, Rogers et al., 1977 and subsequent research experiments have therefore been interested in investigating self-reference effect as a cue to encode stimuli deeply as it enables the person to relate the stimuli to themselves which leads to better retention of it. However, it is possible that during recall, it does not depend on the depth of encoding but rather on the strength of the retrieval cue. Self-reference can be an effective retrieval cue given that in our everyday lives, it is frequently used to recall personal experiences which also means that it more readily available to be used as mnemonic device rather than semantics cue. Thus self-reference effect also has the advantage of having been practiced in memory retrieval more than other tasks given its frequent usage. Recall failures can also be the result of the inability to retrieve information from long term storage rather than information being lost from long term storage (Buschke,1974). This reasoning  can also be applied  to explain the under performance of  mnemonic tasks other than SRE as it is possible that the information was retained but it was unable to be recalled due to infrequent use of these tasks in retrieval. Given the scant number of research done on retrieval in learning, most theories have therefore focused on searching for ways to enhance encoding information but one theory states  that when we retrieve information, we reconstruct what we already know by using the cues to remember (Karpicke,2012). The concept of constructing knowledge can also be applied to SRE as the participant can readily engages the self to  retrieve information learned earlier. 
+
+The present study acknowledges that self reference effect has been reliably demonstrated in research, however there has not been much agreement on the factors underlying the occurrence of this phenomenon. Research has heavily focused on the self as a structure interpreting available stimuli against past experiences which can leave a stronger trace in memory. The purpose of this study is to  to include a different perspective which takes the importance of retrieval into account as one of the factors for improving recalling. This paper assumes that self-reference effect has emerged strong in free recall experiments since the self is an elaborate organization of personal information, including perceived traits and engages with new information by comparing it with the past experiences. The current experiment will be conducted online since majority of these experiments were conducted in laboratory which can often mean that the results obtained in controlled setting could possibly not be applied to in real life. An online version of self-reference paradigm has already  replicated the original Rogers et al., 1977 study and found a strong self reference effect in their online experiment (Bentley et al., 2017)
+
+**should there be prediction graphs?**
+
+Experiment 1  will resemble the original Roger et al. (1977) experiment in its general outline with major deviations (1) The experiment will include the original three tasks excluding phonemic task (2) The experiment will include free recall test in between the questions as well as at the end (3) All questions will contain one word to avoid any potential interference of non-target words. 
+
+
+ 
+# Methods
+info about words 
+first variabl: 3 levels of one manipulation type. it is the task
+within subjects design with encoding task 
+2nd variable recall during encoding yes or no. it is withing subjects 
+recall is the dependent variable
+3 x 2 x2 mixed factor design with 2 within and 1 blocking as experiment 
+
+possiblly a 3 one 
+blocked vs mixed 
+it will be between subjects 
+
+some subjects will get encoding tasks in blocks and mixed 
+
+
+We report how we determined our sample size, all data exclusions (if any), all manipulations, and all measures in the study. <!-- 21-word solution (Simmons, Nelson & Simonsohn, 2012; retrieved from http://ssrn.com/abstract=2160588) -->
+
+## Participants
+
+## Material
+
+## Procedure
+
+## Data analysis
+
+We used `r cite_r("r-references.bib")` for all our analyses.
+
+# Results
+
+# Discussion
+
+\newpage
+
+# References
+
+::: {#refs custom-style="Bibliography"}
+\@
+:::

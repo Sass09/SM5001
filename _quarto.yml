@@ -1,6 +1,8 @@
 project:
   type: website
   output-dir: docs
+  render: 
+    - "!research_paper/"
 
 website:
   title: "SM5001"
