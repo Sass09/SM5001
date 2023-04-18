@@ -134,7 +134,7 @@ some subjects will get encoding tasks in blocks and mixed
  Just Another Tool for Online Studies (JATOS) was used to host this experiment online (Lange, Kühn, & Filevich, 2015. The experiment was programmed using JsPsych (De Leeuw, 2015). The source code for the experiments is available from the project website. 
  There was a consent form presented at the beginning of the experiment. The experiment was divided into two phases. Phase 1 entailed 44  questions and 12 recall boxes in between the cue questions. Phase 2 was comprised of two recall questions. The participant was also presented the basic instructions for each phase and had to press any key to begin the experiment. The cue question appeared after 3000 ms of blank screen. The target adjective and choice buttons appeared after 5000 ms. There were a total of 44 questions presented and each question had to be answered before proceeding to the next question. The cue questions were randomized for some participants as in a semantics cue question could appear after a structural cue question. For some participants, cue questions were presented in blocks for each task. 
  
- In phase 2 of the experiment, participants were instructed to recall all the words they could. After clcking on the button, another box appeared with instructions to spend more time and recall words.The additional recall cue was added to 
+ In phase 2 of the experiment, participants were instructed to recall all the words they could. After clicking on the button, another box appeared with instructions to spend more time and recall words.The additional recall cue was added to ensure that the participant was able to engage in retrieval practice. 
  
 ## Data analysis
 
