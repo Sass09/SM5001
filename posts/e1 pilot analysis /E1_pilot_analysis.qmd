@@ -1,0 +1,217 @@
+---
+title: "E1 Pilot"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{E1_DF_Mixed}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE,
+                      warning = FALSE,
+                      message = FALSE)
+```
+
+Data collected 3/2/23
+
+# Load libraries
+
+```{r}
+library(dplyr)
+library(tidyverse)
+library(jsonlite)
+library(xtable)
+library(data.table)
+```
+
+## Import Data
+
+```{r}
+# Read the text file from JATOS ...
+read_file('jatos_results_20230419164019.txt') %>%
+  # ... split it into lines ...
+  str_split('\n') %>% first() %>%
+  # ... filter empty rows ...
+  discard(function(x) x == '') %>%
+  # ... parse JSON into a data.frame
+  map_dfr(fromJSON, flatten=T) -> all_data
+```
+
+
+## Demographics
+
+```{r}
+library(tidyr)
+
+demographics <- all_data %>%
+  filter(trial_type == "survey-html-form") %>%
+  select(ID,response) %>%
+  unnest_wider(response) %>%
+  mutate(age = as.numeric(age))
+
+age_demographics <- demographics %>%
+  summarize(mean_age = mean(age),
+            sd_age = sd(age),
+            min_age = min(age),
+            max_age = max(age))
+
+factor_demographics <- apply(demographics[-1], 2, table)
+
+```
+
+A total of `r dim(demographics)[1]` participants were recruited from Amazon's Mechanical Turk. Mean age was `r round(age_demographics$mean_age, digits=1)` (range = `r age_demographics$min_age` to `r age_demographics$max_age` ). There were `r as.numeric(factor_demographics$sex["female"])` females, and `r as.numeric(factor_demographics$sex["male"])` males. There were `r as.numeric(factor_demographics$hand["Right"])` right-handed participants, and `r as.numeric(factor_demographics$hand["Both"])+as.numeric(factor_demographics$hand["Left"])` left or both handed participants. `r as.numeric(factor_demographics$vision["Normal"])` participants reported normal vision, and `r as.numeric(factor_demographics$vision["Corrected"])` participants reported corrected-to-normal vision. `r as.numeric(factor_demographics$english["First"])` participants reported English as a first language, and `r as.numeric(factor_demographics$english["Second"])` participants reported English as a second language.
+
+## Pre-processing
+
+### Case judgment accuracy
+
+```{r}
+case_judgment <- all_data %>%
+  filter(encoding_trial_type == "study_word",
+         study_instruction == "case") %>%
+  mutate(response = as.character(unlist(response))) %>%
+  mutate(accuracy = case_when(
+    response == "0" & letter_case == "upper" ~ 1,
+    response == "1" & letter_case == "upper" ~ 0,
+    response == "0" & letter_case == "lower" ~ 0,
+    response == "1" & letter_case == "lower" ~ 1
+         )) %>%
+  group_by(ID) %>%
+  summarise(percent_correct = mean(accuracy))
+
+ggplot(case_judgment, aes(x=percent_correct))+
+  geom_histogram() +
+  geom_vline(xintercept=.7)
+```
+
+## All exclusions
+
+```{r}
+
+all_excluded <- c()
+
+length(all_excluded)
+
+```
+
+# Accuracy analysis
+
+## Define Helper functions
+
+To do, consider moving the functions into the R package for this project
+
+```{r}
+# attempt general solution
+
+## Declare helper functions
+
+################
+# get_mean_sem
+# data = a data frame
+# grouping_vars = a character vector of factors for analysis contained in data
+# dv = a string indicated the dependent variable colunmn name in data
+# returns data frame with grouping variables, and mean_{dv}, sem_{dv}
+# note: dv in mean_{dv} and sem_{dv} is renamed to the string in dv
+
+get_mean_sem <- function(data, grouping_vars, dv, digits=3){
+  a <- data %>%
+    group_by_at(grouping_vars) %>%
+    summarize("mean_{ dv }" := round(mean(.data[[dv]]), digits),
+              "sem_{ dv }" := round(sd(.data[[dv]])/sqrt(length(.data[[dv]])),digits),
+              .groups="drop")
+  return(a)
+}
+
+################
+# get_effect_names
+# grouping_vars = a character vector of factors for analysis
+# returns a named list
+# list contains all main effects and interaction terms
+# useful for iterating the computation means across design effects and interactions
+
+get_effect_names <- function(grouping_vars){
+  effect_names <- grouping_vars
+  if( length(grouping_vars > 1) ){
+    for( i in 2:length(grouping_vars) ){
+      effect_names <- c(effect_names,apply(combn(grouping_vars,i),2,paste0,collapse=":"))
+    }
+  }
+  effects <- strsplit(effect_names, split=":")
+  names(effects) <- effect_names
+  return(effects)
+}
+
+################
+# print_list_of_tables
+# table_list = a list of named tables
+# each table is printed 
+# names are header level 3
+
+print_list_of_tables <- function(table_list){
+  for(i in 1:length(table_list)){
+    cat("###",names(table_list[i]))
+    cat("\n")
+    print(knitr::kable(table_list[[i]]))
+    cat("\n")
+  }
+}
+```
+
+## Design mutation
+
+```{r}
+
+
+```
+
+## Conduct Analysis
+
+```{r}
+# get response bias
+
+response_bias <-  all_data %>%
+  filter(encoding_trial_type == "study_word") %>%
+  mutate(response = as.character(unlist(response))) %>%
+  group_by(ID,study_instruction) %>%
+  count(response)
+
+
+```
+
+## Study phase recall
+
+```{r}
+
+study_phase_recall <-  all_data %>%
+  filter(phase == "study_recall",
+         encoding_recall == "recall") %>%
+  separate(col = paragraph,
+           into = c("first_word","second_word"),
+           sep = " ",
+           remove = FALSE,
+           extra = "merge") %>%
+  mutate(accuracy = tolower(target_word) == tolower(first_word)) %>%
+  group_by(ID,study_instruction) %>%
+  summarize(percent_correct = mean(accuracy)
+           )
+
+```
+
+## end recall number of words
+
+```{r}
+
+end_recall <- all_data %>% 
+  filter(phase %in% unlist(c("recall_1", "recall_2"))) %>%
+ mutate( count_words = length(unlist(strsplit(end_recall$paragraph, split= " ")))) 
+%>%
+   group_by(ID)
+  
+
+
+
+```
+
+
+
