@@ -1,0 +1,80 @@
+```{r}
+prediction_graph <- tibble(
+  `Hypothesis` = rep(c("H1: Retrieval Practice \n Improves Recall \n for Case and Semantic","H2: Retrieval Practice \n Improves Recall \n For All"),each=6),
+  `Study Instruction` = factor(rep(c("Case","Semantic","Self","Case","Semantic","Self"),2),
+                                  levels= c("Case","Semantic","Self")),
+  `Retrieval Practice` = factor(rep(rep(c("No Retrieval Practice \n during study \n", "Retrieval Practice \n during study \n"),each =3),2)),
+  `Predicted Recall` = c(1,2,3,3,3,3,1,2,3,2,3,4)
+  )
+```
+
+```{r}
+
+
+factorial_anova <-aov(`Predicted Recall` ~ `Study Instruction`+ `Retrieval Practice`, data= prediction_graph)
+summary(factorial_anova)
+
+
+
+
+```
+
+graph :
+
+```{r}
+
+findings <- findings %>% 
+  mutate(study_instruction = factor(study_instruction,levels = c("case","semantic","self")),
+         `Retrieval Practice` = case_when(
+           encoding_recall == "no_recall" ~ "No Retrieval Practice \n during study \n",
+           encoding_recall == "recall" ~ "Retrieval Practice \n during study \n",
+                                          ))
+
+
+ggplot(findings,
+       aes(x=study_instruction,
+           y=mean_number_recalled,
+           fill=`Retrieval Practice`))+
+  geom_bar(stat="identity",position="dodge",color="black") +
+  geom_errorbar(aes(ymin = mean_number_recalled-sem_number_recalled,
+                    ymax = mean_number_recalled+sem_number_recalled),
+                width=.9, position=position_dodge2(width = 0.2, padding = 0.8)) +
+  ylab("Mean # of Words Recalled")+
+  xlab("Study Instruction") +
+  theme_classic(base_size = 15)
+  
+```
+
+```{r}
+
+both_retrieval_graph <- findings %>% 
+  select(study_instruction, encoding_recall,mean_number_recalled,sem_number_recalled) 
+
+ggplot(both_retrieval_graph, aes(x=study_instruction, y=mean_number_recalled))+
+  geom_bar(stat="identity",position="dodge",color="blue", fill= "lightblue") +
+  geom_errorbar(aes(ymin = mean_number_recalled-sem_number_recalled,
+                    ymax = mean_number_recalled+sem_number_recalled),
+                width=.9, position=position_dodge2(width = 0.2, padding = 0.8)) +
+  ylab("Mean # of Words Recalled")+
+  xlab("Study Instruction") +
+  theme_classic(base_size = 15) +
+  ggtitle("Findings")+
+  facet_wrap(~`encoding_recall`)
+
+
+
+```
+
+```{}
+```
+
+```{r}
+
+
+
+
+
+
+
+
+```
