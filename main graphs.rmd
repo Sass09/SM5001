@@ -16,7 +16,6 @@ summary(factorial_anova)
 
 
 
-
 ```
 
 graph :
@@ -48,24 +47,21 @@ ggplot(findings,
 ```{r}
 
 both_retrieval_graph <- findings %>% 
-  select(study_instruction, encoding_recall,mean_number_recalled,sem_number_recalled) 
+  select(study_instruction, encoding_recall,mean_number_recalled,sem_number_recalled) %>%
+  mutate(encoding_recall =recode(encoding_recall, recall ="Retrieval Practice during study ", no_recall= "No Retrieval Practice during study"))
 
 ggplot(both_retrieval_graph, aes(x=study_instruction, y=mean_number_recalled))+
-  geom_bar(stat="identity",position="dodge",color="blue", fill= "lightblue") +
+  geom_bar(stat="identity",position="dodge",color="#3272a1", fill= "#3272a1") +
   geom_errorbar(aes(ymin = mean_number_recalled-sem_number_recalled,
                     ymax = mean_number_recalled+sem_number_recalled),
                 width=.9, position=position_dodge2(width = 0.2, padding = 0.8)) +
   ylab("Mean # of Words Recalled")+
   xlab("Study Instruction") +
   theme_classic(base_size = 15) +
-  ggtitle("Findings")+
   facet_wrap(~`encoding_recall`)
 
 
 
-```
-
-```{}
 ```
 
 ```{r}
